@@ -43,6 +43,7 @@ class Rent(models.Model):
 
 
 class Condition(models.Model):
+    
     """Описание условий"""
     condition_name = models.CharField("Условие", max_length=50)
 

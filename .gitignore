@@ -1,1 +1,4 @@
 venv/
+rentcar/cars/__pycache__
+rentcar/api/other/__pycache__
+rentcar/config/__pycache__
