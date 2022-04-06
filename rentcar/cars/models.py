@@ -10,6 +10,10 @@ class Administrator(models.Model):
     "Класс администратора системы"
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = "Администратор"
+        verbose_name_plural = "Администраторы"
     
     def __str__(self):
         return f"User: {self.user}"
@@ -19,6 +23,10 @@ class Customer(models.Model):
     "Класс описания атрибутов клиента"
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = "Клиент"
+        verbose_name_plural = "Клиенты"
 
     def __str__(self):
         return f"User: {self.user}"
@@ -69,7 +77,7 @@ class Order(models.Model):
 class Condition(models.Model):
     """Описание условий"""
 
-    condition_name = models.CharField("Условие", max_length=50)
+    condition_name = models.CharField("Условие", max_length=100)
 
     class Meta:
         verbose_name = "Условие"
@@ -109,7 +117,7 @@ class DeliveryZone(models.Model):
 class Delivery(models.Model):
     "Описание атрибутов доставки"
 
-    delivery_zone = models.ForeignKey("DeliveryZone", verbose_name="Зоны доставки")
+    delivery_zone = models.ForeignKey("DeliveryZone", verbose_name="Зоны доставки", on_delete=models.CASCADE)
     address = models.CharField("Адрес доставки", max_length=150)
     delivery_time = models.DateTimeField('Время доставки')
 
