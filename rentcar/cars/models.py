@@ -5,9 +5,8 @@ from cars.choices import ( CategoryChoices,
                            EnigneTypeChoices)
 from django.contrib.auth.models import User
 from serviceoptions.models import (
-    DeliveryZone, Delivery,
+    Delivery, Condition,
     Insurance, Extension,
-    Condition
 )
 
 class Administrator(models.Model):
@@ -68,11 +67,11 @@ class Order(models.Model):
     condition = models.ManyToManyField(Condition, verbose_name="Условия аренды")
     insurance = models.ManyToManyField(Insurance, verbose_name="Тип страхования")
     delivery = models.ForeignKey(Delivery, on_delete=models.CASCADE)
-    order_extension = models.ForeignKey(Extension, on_delete=models.CASCADE)
+    order_extension = models.ForeignKey(Extension, on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta:
         verbose_name = "Заказ"
         verbose_name_plural = "Заказы"
 
     def __str__(self):
-        return str(self.car) + " " + str(self.date_out)
+        return str(self.car) + " " + str(self.date_getting)
