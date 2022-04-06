@@ -4,7 +4,11 @@ from cars.choices import ( CategoryChoices,
                            TransmissionChoices,
                            EnigneTypeChoices)
 from django.contrib.auth.models import User
-
+from serviceoptions.models import (
+    DeliveryZone, Delivery,
+    Insurance, Extension,
+    Condition
+)
 
 class Administrator(models.Model):
     "Класс администратора системы"
@@ -56,87 +60,19 @@ class Car(models.Model):
 class Order(models.Model):
     """Описание заказа"""
 
-    customer = models.ForeignKey("Customer", on_delete=models.CASCADE)
-    car = models.ForeignKey("Car", on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    car = models.ForeignKey(Car, on_delete=models.CASCADE)
     date_getting = models.DateField("Дата сдачии")
     period = models.IntegerField("Период аренды")
     order_price = models.IntegerField("Стоимость")
-    condition = models.ManyToManyField("Condition", verbose_name="Условия аренды")
-    insurance = models.ManyToManyField("Insurance", verbose_name="Тип страхования")
-    delivery = models.ForeignKey("Delivery", on_delete=models.CASCADE)
-    order_extension = models.ForeignKey("Extension", on_delete=models.CASCADE)
+    condition = models.ManyToManyField(Condition, verbose_name="Условия аренды")
+    insurance = models.ManyToManyField(Insurance, verbose_name="Тип страхования")
+    delivery = models.ForeignKey(Delivery, on_delete=models.CASCADE)
+    order_extension = models.ForeignKey(Extension, on_delete=models.CASCADE)
 
     class Meta:
-        verbose_name = "Сервис аренды"
-        verbose_name_plural = "Сервис Аренды"
+        verbose_name = "Заказ"
+        verbose_name_plural = "Заказы"
 
     def __str__(self):
         return str(self.car) + " " + str(self.date_out)
-
-
-class Condition(models.Model):
-    """Описание условий"""
-
-    condition_name = models.CharField("Условие", max_length=100)
-
-    class Meta:
-        verbose_name = "Условие"
-        verbose_name_plural = "Условия"
-
-    def __str__(self):
-        return self.condition_name
-
-
-class Insurance(models.Model):
-    "Описание типов страхования"
-
-    insurance_name = models.CharField("Тип страхования", max_length=70)
-
-    class Meta:
-        verbose_name = "Тип страхования"
-        verbose_name_plural = "Типы страхований"
-
-    def __str__(self):
-        return self.insurance_name
-
-
-class DeliveryZone(models.Model):
-    "Класс соответствия районов и тарифа на доставку"
-
-    area_name = models.CharField("Название района", max_length=100)
-    area_price = models.IntegerField("Тариф")
-    
-    class Meta:
-        verbose_name = "Тариф на доставку"
-        verbose_name_plural = "Тарифы на доставку"
-
-    def __str__(self):
-        return f"Area name: {self.area_name} - price: {self.area_price}"
-
-
-class Delivery(models.Model):
-    "Описание атрибутов доставки"
-
-    delivery_zone = models.ForeignKey("DeliveryZone", verbose_name="Зоны доставки", on_delete=models.CASCADE)
-    address = models.CharField("Адрес доставки", max_length=150)
-    delivery_time = models.DateTimeField('Время доставки')
-
-    class Meta:
-        verbose_name = "Доставка"
-        verbose_name_plural = "Доставки"
-
-    def __str__(self):
-        return f"Adress: {self.address} - time: {self.delivery_time}"
-
-
-class Extension(models.Model):
-    "Класс продления заказа"
-
-    days_amount = models.IntegerField("Количество дней")
-
-    class Meta:
-        verbose_name = "Продление"
-        verbose_name_plural = "Продления"
-
-    def __str__(self):
-        return f"Days amount: {self.days_amount}"

@@ -1,9 +1,13 @@
 from django.contrib import admin
-from cars.models import (
-    Car, Condition, Order,
+from cars.models import ( 
+    Customer,
+    Administrator,
+    Car, Order,
+)
+from serviceoptions.models import (
     DeliveryZone, Delivery,
     Insurance, Extension,
-    Customer, Administrator
+    Condition
 )
 
 
