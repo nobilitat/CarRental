@@ -1,11 +1,7 @@
-venv/
-rentcar/cars/__pycache__
-rentcar/api/other/__pycache__
-rentcar/config/__pycache__
-__pycache__/
 .DS_Store
 node_modules
 /dist
+
 
 # local env files
 .env.local
