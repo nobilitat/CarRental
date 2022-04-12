@@ -1,9 +1,11 @@
 from django.contrib import admin
 from django.urls import path, include
-from api.cars.views import CarDetailView,CarListView
+from api.cars.views import CarDetailView,CarListView,OrderListView
 
 
 urlpatterns = [
-    path('list', CarListView.as_view()),
-    path('detail/<int:pk>', CarDetailView.as_view())
+    path('car/list', CarListView.as_view()),
+    path('order/list', OrderListView.as_view()),
+    path('car/detail/<int:pk>', CarDetailView.as_view()),
+    
 ]

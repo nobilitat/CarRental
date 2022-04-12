@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
-from api.cars.serializers import CarModelSerializer
-from cars.models import Car
+from api.cars.serializers import CarModelSerializer, OrderSerializer
+from cars.models import Car, Order
 
 
 class CarListView(generics.ListAPIView):
@@ -16,3 +16,10 @@ class CarDetailView(generics.RetrieveUpdateDestroyAPIView):
 
     serializer_class = CarModelSerializer
     queryset = Car.objects.all()
+
+
+class OrderListView(generics.ListAPIView):
+    """Вывод списка заказов"""
+
+    serializer_class = OrderSerializer
+    queryset = Order.objects.all()
