@@ -59,6 +59,7 @@ class Car(models.Model):
 class Order(models.Model):
     """Описание заказа"""
 
+    active_state = models.BooleanField(default=True)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     date_getting = models.DateField("Дата сдачии")
