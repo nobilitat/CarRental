@@ -3,7 +3,10 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import CarCatalogView from '../views/CarCatalogView.vue'
 import ConditionsView from '../views/ConditionsView.vue'
-import ContactView from "../views/ContactView"
+import ContactView from "../views/ContactView.vue"
+import MyOrdersView from "../views/MyOrdersView.vue"
+import NewOrder from "../views/NewOrder.vue"
+import OrderPageView from "../views/OrderPageView.vue"
 
 Vue.use(VueRouter)
 
@@ -29,12 +32,19 @@ const routes = [
     component: ContactView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/myorders',
+    name: 'myorder',
+    component: MyOrdersView
+  },
+  {
+    path: '/neworder',
+    name: 'neworder',
+    component: NewOrder
+  },
+  {
+    path: '/order/:id',
+    name: 'myorder',
+    component: OrderPageView
   }
 ]
 

@@ -43,6 +43,11 @@
                   >Авторизация</a
                 >
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#/myorders" tabindex="-1" aria-disabled="true"
+                  >Личный кабинет</a
+                >
+              </li>
             </ul>
           </div>
         </div>
