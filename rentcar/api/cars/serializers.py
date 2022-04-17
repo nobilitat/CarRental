@@ -3,7 +3,12 @@ from tkinter import filedialog
 from rest_framework import serializers
 from cars.models import Car, Order, Customer
 from django.contrib.auth.models import User
-from api.serviceoptions.serializer import ConditionSerializer
+from api.serviceoptions.serializers import (
+    ConditionSerializer, 
+    InsuranceSerializer,
+    DeliverySerializer
+)
+
 
 class CarModelSerializer(serializers.ModelSerializer):
     """Сериалайзер для модели автомобиля"""
@@ -43,10 +48,13 @@ class OrderSerializer(serializers.ModelSerializer):
     customer = CustomerSerializer()
     car = CarModelSerializer()
     condition = ConditionSerializer(many=True)
+    insurance = InsuranceSerializer(many=True)
+    delivery = DeliverySerializer()
 
     class Meta:
         model = Order
         fields = (
+            "id",
             "customer",
             "car",
             "date_getting",

@@ -1,13 +1,16 @@
 from distutils import extension
 from django.db import models
-from cars.choices import ( CategoryChoices, 
-                           TransmissionChoices,
-                           EnigneTypeChoices)
+from cars.choices import ( 
+    CategoryChoices, 
+    TransmissionChoices,
+    EnigneTypeChoices
+)
 from django.contrib.auth.models import User
 from serviceoptions.models import (
     Delivery, Condition,
     Insurance, Extension,
 )
+
 
 class Administrator(models.Model):
     "Класс администратора системы"
@@ -32,7 +35,7 @@ class Customer(models.Model):
         verbose_name_plural = "Клиенты"
 
     def __str__(self):
-        return f"User: {self.user}"
+        return f"{self.user}"
 
 
 class Car(models.Model):
@@ -42,11 +45,12 @@ class Car(models.Model):
     category = models.CharField("Категория", max_length=30, choices=CategoryChoices.choices)
     busy = models.BooleanField("Занята")
     image = models.ImageField("Фото автомобиля", blank=True)
-    apacity = models.IntegerField("Вместимость(чел)")
+    capacity = models.IntegerField("Вместимость(чел)")
     consumption = models.IntegerField("Расход на 100км")
     transmission = models.CharField("Тип трансмиссии", max_length=10, choices=TransmissionChoices.choices)
     engine_power = models.IntegerField("Мощность двигателя")
     engine_type = models.CharField("Тип двигателя", max_length=40, choices=EnigneTypeChoices.choices)
+    car_price = models.IntegerField("Стоимость авто")
 
     class Meta:
         verbose_name = "Автомобиль"
