@@ -1,7 +1,7 @@
 <template>
   <div>
     <header id="header" class="header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
+      <nav class="navbar navbar-expand-md navbar-dark bg-main">
         <div class="container">
           <a class="navbar-brand" href="/">RentCar</a>
           <button

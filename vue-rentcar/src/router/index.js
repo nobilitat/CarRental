@@ -7,6 +7,7 @@ import ContactView from "../views/ContactView.vue"
 import MyOrdersView from "../views/MyOrdersView.vue"
 import NewOrder from "../views/NewOrder.vue"
 import OrderPageView from "../views/OrderPageView.vue"
+import CarPageView from "../views/CarPageView.vue"
 
 Vue.use(VueRouter)
 
@@ -45,6 +46,11 @@ const routes = [
     path: '/order/:id',
     name: 'myorder',
     component: OrderPageView
+  },
+  {
+    path: '/car/:id',
+    name: 'myorder',
+    component: CarPageView
   }
 ]
 

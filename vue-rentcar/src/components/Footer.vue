@@ -1,7 +1,7 @@
 <template>
   <div>
     <footer id="footer">
-      <div class="container-md bg-secondary">
+      <div class="container-md bg-main rounded-top">
         <div class="row">
           <div class="col">
             <div class="text-white align-items-center p-3">
