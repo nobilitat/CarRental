@@ -1,6 +1,10 @@
 .bg-translucent{
-    background-color: rgb(0, 0, 0, 0.2);
+    background-color: rgb(0, 0, 0, 0.16);
 }
 .bg-main{
-    background-color: rgb(80, 87, 93);
+    /* background-color: rgb(80, 87, 93); */
+    background-color: #444C5C;    
+}
+.bg-lightblue{
+    background-color: #e0e5ee;
 }

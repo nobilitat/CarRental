@@ -44,12 +44,12 @@ const routes = [
   },
   {
     path: '/order/:id',
-    name: 'myorder',
+    name: 'orderpage',
     component: OrderPageView
   },
   {
     path: '/car/:id',
-    name: 'myorder',
+    name: 'mycar',
     component: CarPageView
   }
 ]
