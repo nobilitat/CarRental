@@ -1,10 +1,35 @@
-.bg-translucent{
+.bg-translucent {
     background-color: rgb(0, 0, 0, 0.16);
 }
-.bg-main{
+
+.bg-main {
     /* background-color: rgb(80, 87, 93); */
-    background-color: #444C5C;    
+    background-color: #444C5C;
 }
-.bg-lightblue{
+
+.bg-lightblue {
     background-color: #e0e5ee;
+}
+
+.btn-rentcar {
+    color: #fff;
+    background-color: #444C5C;
+    border-color: #444C5C;
+}
+
+.btn-rentcar:hover {
+    color: #fff;
+    background-color: #363c49;
+    border-color: #363c49;
+}
+
+.btn-outline-rentcar {
+    color: #363c49;
+    border-color: #363c49;
+}
+
+.btn-outline-rentcar:hover {
+    color: #fff;
+    background-color: #363c49;
+    border-color: #363c49;
 }

@@ -1,32 +1,31 @@
 <template>
   <div class="container mt-2 mb-2 px-0">
     <NavAuthUser />
-    <h2 class="mt-3">Мои заказы</h2>
-    <div class="container-md">
-      <div class="row border border-secondary mt-3 pt-2">
+    <h2 class="mt-3 text-center">Мои заказы</h2>
+    <div class="row mt-3 justify-content-center">
+      <div class="col-lg-5 border border-secondary rounded-end pt-2">
         <p>Статус: state</p>
         <p>Заказ от date</p>
       </div>
     </div>
-    <div class="container-md">
-      <div class="row border border-secondary mt-3 pt-2">
-        <p>Статус: {{ state }}</p>
-        <p>Заказ от {{ date }}</p>
+    <div class="row mt-3 justify-content-center">
+      <div class="col-lg-5 border border-secondary rounded-end pt-2">
+        <p>Статус: state</p>
+        <p>Заказ от date</p>
       </div>
     </div>
-    <div class="container-md">
-      <div class="row border border-secondary mt-3 pt-2">
-        <p>Статус: {{ state }}</p>
-        <p>Заказ от {{ date }}</p>
+    <div class="row mt-3 justify-content-center">
+      <div class="col-lg-5 border border-secondary rounded-end pt-2">
+        <p>Статус: state</p>
+        <p>Заказ от date</p>
       </div>
     </div>
-    <div class="container-md">
-      <div class="row border border-secondary mt-2 pt-2">
-        <p>Статус: {{ state }}</p>
-        <p>Заказ от {{ date }}</p>
+    <div class="row mt-3 justify-content-center">
+      <div class="col-lg-5 border border-secondary rounded-end pt-2">
+        <p>Статус: state</p>
+        <p>Заказ от date</p>
       </div>
     </div>
-    
   </div>
 </template>
 

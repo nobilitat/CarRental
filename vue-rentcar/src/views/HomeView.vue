@@ -15,7 +15,7 @@
           <div class="row">
               <div class="col"></div>
               <div class="col d-flex justify-content-center">
-                  <button type="button" class="btn-lg btn-primary">Заказать автомобиль</button>
+                  <button type="button" class="btn-lg btn-rentcar">Заказать автомобиль</button>
               </div>
               <div class="col"></div>
           </div>

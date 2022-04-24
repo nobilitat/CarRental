@@ -18,7 +18,7 @@
           <span class="price">Стоимость <br>
             {{car.car_price}} руб/сутки
           </span>
-          <button type="button" class="btn-lg btn-primary btn-select-style">
+          <button type="button" class="btn-lg btn-rentcar btn-select-style">
             Заказать
           </button>
         </div>
@@ -38,17 +38,15 @@
   position: relative;
   padding: 0;
 }
-.selectcar:hover > .btn-select-style {
+/* .selectcar:hover > .btn-select-style {
   background-color: rgb(13, 110, 253);
   border-color: rgb(13, 110, 253);
-}
+} */
 .btn-select-style {
   position: absolute;
   bottom: 0%;
   right: 0;
   width: 50%;
-  background-color: rgb(13, 110, 253, 0.3);
-  border-color: rgb(13, 110, 253, 0.1);
   border-bottom-right-radius: 0%;
 }
 .text-on-pic {

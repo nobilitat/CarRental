@@ -8,6 +8,8 @@ import MyOrdersView from "../views/MyOrdersView.vue"
 import NewOrder from "../views/NewOrder.vue"
 import OrderPageView from "../views/OrderPageView.vue"
 import CarPageView from "../views/CarPageView.vue"
+import LoginPageView from "../views/LoginPageView.vue"
+import RegistrationPageView from "../views/RegistrationPageView.vue"
 
 Vue.use(VueRouter)
 
@@ -51,6 +53,16 @@ const routes = [
     path: '/car/:id',
     name: 'mycar',
     component: CarPageView
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginPageView
+  },
+  {
+    path: '/registration',
+    name: 'registration',
+    component: RegistrationPageView
   }
 ]
 
