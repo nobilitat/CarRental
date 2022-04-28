@@ -1,8 +1,15 @@
+from this import d
 from django.shortcuts import render
 from rest_framework import generics
-from api.cars.serializers import CarModelSerializer, OrderSerializer
+from rest_framework import views
+from api.cars.serializers import (
+    CarModelSerializer, 
+    OrderSerializer
+)
 from cars.models import Car, Order
 from rest_framework.response import Response
+from django.contrib.auth.models import User
+from djoser.serializers import UserSerializer
 
 
 class CarListView(generics.ListAPIView):
@@ -19,19 +26,14 @@ class CarDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Car.objects.all()
 
 
-class OrderListView(generics.ListAPIView):
-    """Вывод списка заказов для конкретного пользователя"""
-
-    serializer_class = OrderSerializer
-
-    def list(self, request, *args, **kwargs):
+class OrderListView(views.APIView):
+    
+    def post(self, request):
         alldata = request.data
         user = alldata.get("username")
-
-        if user:
-            queryset = Order.objects.filter(
-                customer__user__username = user)
-        serializer = self.get_serializer(queryset, many=True)
+        queryset = Order.objects.filter(
+            customer__user__username = user)
+        serializer = OrderSerializer(queryset, many=True)
         return Response(serializer.data)
 
 
@@ -47,3 +49,14 @@ class OrderCreateView(generics.CreateAPIView):
 
     serializer_class = OrderSerializer
     queryset = Order.objects.all()
+
+
+class UserGetView(views.APIView):
+    """Получение пользователя"""
+
+    def post(self, request):
+        alldata = request.data
+        user = alldata.get("username")
+        queryset = User.objects.filter(username = user)
+        serializer = UserSerializer(queryset, many=True)
+        return Response(serializer.data)

@@ -8,6 +8,7 @@ from api.serviceoptions.serializers import (
     InsuranceSerializer,
     DeliverySerializer
 )
+from djoser.serializers import UserSerializer
 
 
 class CarModelSerializer(serializers.ModelSerializer):
@@ -18,16 +19,16 @@ class CarModelSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class UserSerializer(serializers.ModelSerializer):
-    """Сериалайзер для модели пользователя"""
+# class UserSerializer(serializers.ModelSerializer):
+#     """Сериалайзер для модели пользователя"""
 
-    class Meta:
-        model = User
-        fields = (
-            "first_name",
-            "last_name",
-            "username"
-        )
+#     class Meta:
+#         model = User
+#         fields = (
+#             "first_name",
+#             "last_name",
+#             "username"
+#         )
 
 
 class CustomerSerializer(serializers.ModelSerializer):
