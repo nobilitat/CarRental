@@ -48,6 +48,11 @@
                   >Личный кабинет</a
                 >
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#/logout/" tabindex="-1" aria-disabled="true"
+                  >Выйти</a
+                >
+              </li>
             </ul>
           </div>
         </div>

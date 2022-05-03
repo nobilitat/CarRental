@@ -6,7 +6,8 @@ from api.cars.views import (
     OrderListView,
     OrderDetailView,
     OrderCreateView,
-    UserGetView
+    UserGetView,
+    LogoutView
 )
 
 
@@ -16,5 +17,8 @@ urlpatterns = [
     path('car/detail/<int:pk>', CarDetailView.as_view()),
     path('order/detil/<int:pk>', OrderDetailView.as_view()),
     path('order/create', OrderCreateView.as_view()),
-    path('user', UserGetView.as_view())
+
+    # User action
+    path('user', UserGetView.as_view()),
+    path('logout', LogoutView.as_view()),
 ]
