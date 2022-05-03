@@ -3,5 +3,6 @@ frun:
 	&& python manage.py runserver
 
 migrate:
-	python manage.py makemigrations \
+	cd ./rentcar/ \
+	&& python manage.py makemigrations \
 	&& python manage.py migrate
