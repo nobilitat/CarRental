@@ -13,23 +13,23 @@
 
 .btn-rentcar {
     color: #fff;
-    background-color: #444C5C;
-    border-color: #444C5C;
+    background-color: #ce5a57;
+    border-color: #ce5a57;
 }
 
 .btn-rentcar:hover {
     color: #fff;
-    background-color: #363c49;
-    border-color: #363c49;
+    background-color: #cf4b47;
+    border-color: #cf4b47;
 }
 
 .btn-outline-rentcar {
-    color: #363c49;
-    border-color: #363c49;
+    color: #ce5a57;
+    border-color: #ce5a57;
 }
 
 .btn-outline-rentcar:hover {
     color: #fff;
-    background-color: #363c49;
-    border-color: #363c49;
+    background-color: #ce5a57;
+    border-color: #ce5a57;
 }
