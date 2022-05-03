@@ -16,13 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from api.other.yasg import urlpatterns as doc_urls
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+    TokenVerifyView
+)
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/cars/', include('cars.urls')),
-    path('auth/', include('djoser.urls')),
-    path('auth/', include('djoser.urls.jwt')),
+
+    # Path for authentication user
+    path('auth/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('auth/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
 ]
 
 urlpatterns += doc_urls
