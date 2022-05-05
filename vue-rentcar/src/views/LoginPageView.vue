@@ -22,7 +22,7 @@
           />
           <input
             v-model="password"
-            type="text"
+            type="password"
             class="w-100 mb-2 p-1"
             placeholder="Пароль"
           />
@@ -31,7 +31,12 @@
         </form>
 
         <p class="pt-4">Еще нет аккаунта?</p>
-        <button @click="$router.push('/registration')" class="btn w-100 btn-outline-rentcar py-2">Регистрация</button>
+        <button
+          @click="$router.push('/registration')"
+          class="btn w-100 btn-outline-rentcar py-2"
+        >
+          Регистрация
+        </button>
       </div>
     </div>
   </div>
@@ -47,21 +52,46 @@ export default {
     };
   },
   methods: {
+    b64DecodeUnicode(str) {
+      return decodeURIComponent(
+        atob(str)
+          .split("")
+          .map(function (c) {
+            return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+          })
+          .join("")
+      );
+    },
+    setUserToLocal(token) {
+      let payload = token.split(".")[1];
+      let user_id = JSON.parse(this.b64DecodeUnicode(payload)).user_id;
+      localStorage.setItem("user", user_id);
+    },
+    redirectAuth(response, token) {
+      if (response.status === 200) {
+        this.$router.push({
+          path: "/myorders",
+          name: "myorder",
+        });
+      }
+    },
     async userLogin() {
       let data = {
         username: this.username,
         password: this.password,
       };
-      await fetch(
-        `http://127.0.0.1:8000/auth/jwt/create`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      ).then(response=> response.data);
+      const response = await fetch(`${this.$store.getters.getAuthUrl}/token/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      const token = await response.json();
+      localStorage.setItem("access-token", token.access);
+      localStorage.setItem("refresh-token", token.refresh);
+      this.setUserToLocal(token.access);
+      this.redirectAuth(response);
     },
   },
 };

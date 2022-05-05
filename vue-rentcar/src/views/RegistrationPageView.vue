@@ -46,6 +46,9 @@
 <script>
 export default {
   name: "RegistrationPageView",
+  props: {
+    username: String,
+  },
   data() {
     return {
       username: "",
@@ -61,7 +64,7 @@ export default {
         re_password: this.re_password
       };
       await fetch(
-        `http://127.0.0.1:8000/auth/users/`,
+        `${this.$store.getters.getAuthUrl}/users/`,
         {
           method: "POST",
           headers: {
