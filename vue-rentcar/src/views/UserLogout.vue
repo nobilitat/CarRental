@@ -4,7 +4,10 @@ export default {
   created() {
     this.logoutUser();
     localStorage.setItem("access-token", "error");
+    // localStorage.setItem("username", "")
+    this.$store.commit("cleanUser");
     this.redirectUser();
+    // location.reload();
   },
   methods: {
     async logoutUser() {

@@ -65,16 +65,20 @@ export default {
     setUserToLocal(token) {
       let payload = token.split(".")[1];
       let user_id = JSON.parse(this.b64DecodeUnicode(payload)).user_id;
-      localStorage.setItem("user", user_id);
+      localStorage.setItem("user_id", user_id);
     },
-    redirectAuth(response, token) {
+
+    async redirectAuth(response, token) {
       if (response.status === 200) {
+        await this.$store.dispatch("getUser");
+        
         this.$router.push({
           path: "/myorders",
           name: "myorder",
         });
       }
     },
+
     async userLogin() {
       let data = {
         username: this.username,

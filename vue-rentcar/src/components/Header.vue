@@ -38,19 +38,19 @@
                   >Контакты</a
                 >
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#/login" tabindex="-1" aria-disabled="true"
-                  >Вход</a
-                >
-              </li>
-              <li class="nav-item">
+              <li v-if="getCurrentUser" class="nav-item">
                 <a class="nav-link" href="#/myorders" tabindex="-1" aria-disabled="true"
                   >Личный кабинет</a
                 >
               </li>
-              <li class="nav-item">
+              <li v-if="getCurrentUser" class="nav-item">
                 <a class="nav-link" href="#/logout/" tabindex="-1" aria-disabled="true"
                   >Выйти</a
+                >
+              </li>
+              <li class="nav-item" v-else>
+                <a class="nav-link" href="#/login" tabindex="-1" aria-disabled="true"
+                  >Вход</a
                 >
               </li>
             </ul>
@@ -62,4 +62,16 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
+
+export default {
+  name: "NavAuthUser",
+  computed: {
+    ...mapGetters([
+      "getCurrentUser"
+    ])
+  },
+  created() {
+  }
+}
 </script>

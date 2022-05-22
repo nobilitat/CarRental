@@ -10,6 +10,7 @@ import OrderPageView from "../views/OrderPageView.vue"
 import CarPageView from "../views/CarPageView.vue"
 import LoginPageView from "../views/LoginPageView.vue"
 import RegistrationPageView from "../views/RegistrationPageView.vue"
+import UserLogout from "../views/UserLogout.vue"
 
 Vue.use(VueRouter)
 
@@ -63,7 +64,13 @@ const routes = [
     path: '/registration',
     name: 'registration',
     component: RegistrationPageView
-  }
+  },
+  {
+    path: '/logout/',
+    name: 'logout',
+    component: UserLogout
+  },
+
 ]
 
 const router = new VueRouter({

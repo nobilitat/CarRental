@@ -1,5 +1,6 @@
 <template>
   <div>
+   
     <nav class="navbar navbar-expand-md navbar-dark bg-main rounded-bottom">
       <div class="container">
         <button
@@ -26,7 +27,7 @@
             <li class="nav-item">
               <a class="nav-link" href="#/myorders">Мои заказы</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a
                 class="nav-link"
                 href="#/contacts"
@@ -34,10 +35,32 @@
                 aria-disabled="true"
                 >Поддержка</a
               >
+            </li> -->
+            <li v-if="getCurrentUser" class="nav-item">
+               <span
+                class="nav-link text-white border"
+                >{{getCurrentUser}}</span>
             </li>
+
           </ul>
         </div>
       </div>
     </nav>
   </div>
 </template>
+
+<script>
+import {mapGetters} from 'vuex'
+
+
+export default {
+  name: "NavAuthUser",
+  computed: {
+    ...mapGetters([
+      "getCurrentUser"
+    ])
+  },
+  created() {
+  }
+}
+</script>
