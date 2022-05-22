@@ -13,7 +13,7 @@
       >
         <h2>Вход</h2>
 
-        <form @submit="userLogin">
+        <form @submit.prevent="userLogin">
           <input
             v-model="username"
             type="text"
