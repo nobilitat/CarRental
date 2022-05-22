@@ -20,5 +20,5 @@ urlpatterns = [
 
     # User action
     path('user', UserGetView.as_view()),
-    path('logout', LogoutView.as_view()),
+    path('logout/', LogoutView.as_view()),
 ]
