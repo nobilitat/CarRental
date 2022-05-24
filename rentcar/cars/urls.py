@@ -9,6 +9,7 @@ from api.cars.views import (
     UserGetView,
     LogoutView
 )
+from api.serviceoptions.views import ConditionsListView
 
 
 urlpatterns = [
@@ -17,6 +18,7 @@ urlpatterns = [
     path('car/detail/<int:pk>', CarDetailView.as_view()),
     path('order/detail/<int:pk>', OrderDetailView.as_view()),
     path('order/create', OrderCreateView.as_view()),
+    path('conditions/list', ConditionsListView.as_view()),
 
     # User action
     path('user', UserGetView.as_view()),
