@@ -13,12 +13,16 @@
 
     <div class="row">
         <b>Физ лица</b>
-        <p>Для получения прокатного автотранспорта требуется:<br>
-        <b>1.</b> Российское гражданство<br>
+        <span>Для получения прокатного автотранспорта требуется:</span> <br>
+        <!-- <b>1.</b> Российское гражданство<br>
         <b>2.</b> Подтверждения статуса гражданства<br>
         <b>3.</b> Постоянная прописка<br>
         <b>4.</b> Возраст от полных 23 лет (для аренды люксовых авто от 30 лет)<br>
-        <b>5.</b> стаж вождения не менее 3 лет (для люксовых не менее 7 лет)</p>
+        <b>5.</b> стаж вождения не менее 3 лет (для люксовых не менее 7 лет)</p> -->
+        <span v-for="(condition, index) in conditionsList" :key="condition.id">
+            <b>{{index+1}}. </b>{{condition.condition_name}} <br>
+        </span> 
+        <p></p>
     </div>
 
     <div class="row">
@@ -63,3 +67,32 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      conditionsList: [],
+    };
+  },
+  methods: {
+    async getConditions() {
+      const response = await fetch(
+        `${this.$store.getters.getServerUrl}/cars/conditions/list`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      this.conditionsList = await response.json();
+      console.log( this.conditionsList)
+    },
+  },
+  created() {
+      this.getConditions()
+  },
+};
+</script>

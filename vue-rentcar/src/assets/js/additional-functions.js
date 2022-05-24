@@ -18,7 +18,7 @@ function numberFormatter(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
-// Функция для изменения формата dateTime
+// Функция для изменения формата date
 function dateFormatter(date) {
     const dateFormat = new Date(date);
     
@@ -28,6 +28,7 @@ function dateFormatter(date) {
     return `${getDay} ${month[getMonth]}`
 }
 
+// Функция для изменения формата dateTime
 function dateTimeFormatter(dateTime) {
     const dateFormat = new Date(dateTime);
 
