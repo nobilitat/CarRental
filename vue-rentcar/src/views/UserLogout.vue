@@ -33,8 +33,8 @@ export default {
     },
     redirectUser() {
       this.$router.push({
-        path: "/login",
-        name: "login",
+        path: "/home",
+        name: "home",
       });
     },
   },
