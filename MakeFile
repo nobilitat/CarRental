@@ -1,3 +1,6 @@
+env:
+	. venv/Scripts/activate
+
 frun:
 	cd ./rentcar/ \
 	&& python manage.py runserver
@@ -6,3 +9,6 @@ migrate:
 	cd ./rentcar/ \
 	&& python manage.py makemigrations \
 	&& python manage.py migrate
+
+upt-lib:
+	pip freeze > requirements.txt
